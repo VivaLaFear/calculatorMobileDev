@@ -1,8 +1,8 @@
+import { router, Stack } from 'expo-router';
+import { Delete, Hourglass } from 'lucide-react-native';
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView, Dimensions, StatusBar } from 'react-native';
-import { Stack } from 'expo-router';
-
-import { Hourglass, Delete } from 'lucide-react-native';
+import { Dimensions, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useHistory } from '../../context/CalculatorContext';
 
 
 const { width, height } = Dimensions.get('window');
@@ -47,6 +47,7 @@ const CalcButton: React.FC<CalcButtonProps> = ({ label, type, onPress }) => {
 export default function CalculatorScreen() {
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
+  const { addToHistory } = useHistory();
 
   const handleButtonPress = (target: string) => {
     if (target === 'AC') {
@@ -86,6 +87,13 @@ export default function CalculatorScreen() {
 
       const evalResult = new Function('return ' + formattedInput)();
       setResult(evalResult.toString());
+
+      const finalResult = evalResult.toString();
+      setResult(finalResult);
+
+      if (input && input !== finalResult) {
+        addToHistory(input, finalResult);
+      }
     }
     catch (error) {
       setResult('Error');
@@ -108,7 +116,7 @@ export default function CalculatorScreen() {
       <StatusBar barStyle="light-content" />
 
       <View style={styles.displayContainer}>
-        <TouchableOpacity style={styles.historyBtn} onPress={() => { console.log('History Opened') }}>
+        <TouchableOpacity style={styles.historyBtn} onPress={() => { router.push('/history' as any) }}>
           <Hourglass size={24} color={COLORS.utility} />
         </TouchableOpacity>
 
