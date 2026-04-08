@@ -100,7 +100,6 @@ export default function CalculatorScreen() {
     }
   }
 
-
   const buttons: ButtonData[] = [
     { label: '√', type: 'operator' }, { label: 'π', type: 'operator' }, { label: '^', type: 'operator' }, { label: '!', type: 'operator' },
     { label: 'AC', type: 'utility' }, { label: '( )', type: 'operator' }, { label: '%', type: 'operator' }, { label: '÷', type: 'operator' },
