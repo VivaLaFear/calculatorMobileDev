@@ -35,8 +35,8 @@ export default function GraphScreen() {
           position: "bottom" as const,
         },
         title: {
-          display: false,
-          text: "Chart.js Line Chart",
+          display: true,
+          text: "Line Chart",
         },
       },
     };
@@ -51,17 +51,11 @@ export default function GraphScreen() {
       labels,
       datasets: [
         {
-          label: "Dataset 1",
+          label: "Your Dataset!",
           data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
           borderColor: "rgb(255, 99, 132)",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
         },
-        // {
-        //   label: "Dataset 2",
-        //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        //   borderColor: "rgb(53, 162, 235)",
-        //   backgroundColor: "rgba(53, 162, 235, 0.5)",
-        // },
       ],
     };
 
@@ -74,14 +68,19 @@ export default function GraphScreen() {
         <Text style={styles.text}>Placeholder</Text>
         {graphElement}
         <View>
-          <input
-            type="number"
-            value={graphLength}
-            onChange={(e) => {
-              setGraphLength(Number(e.target.value));
-            }}
-            style={styles.inputText}
-          />
+          <label style={styles.text}>
+            <input
+              type="range"
+              min="1"
+              max="30"
+              value={graphLength}
+              onChange={(e) => {
+                setGraphLength(Number(e.target.value));
+              }}
+              style={styles.input}
+            />
+            Graph length: {graphLength}
+          </label>
         </View>
       </View>
     </SafeAreaView>
@@ -91,6 +90,6 @@ export default function GraphScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#1C1C1C" },
   center: { flex: 1, justifyContent: "center", alignItems: "center" },
-  text: { color: "#FFFFFF", fontSize: 18 },
-  inputText: { color: "#DDDDDD", backgroundColor: "#505050", fontSize: 20 },
+  text: { color: "#DDDDDD", fontSize: 18 },
+  input: { color: "#DDDDDD", backgroundColor: "#505050", fontSize: 20 },
 });
