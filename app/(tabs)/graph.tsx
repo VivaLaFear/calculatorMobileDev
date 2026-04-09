@@ -42,6 +42,7 @@ export default function GraphScreen() {
     };
 
     const labels = [1];
+    const datasets = [];
 
     for (let i = 2; i <= graphLength; i++) {
       labels.push(i);
@@ -52,7 +53,7 @@ export default function GraphScreen() {
       datasets: [
         {
           label: "Your Dataset!",
-          data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+          data: labels.map(() => faker.datatype.number({ min: 0, max: 500 })),
           borderColor: "rgb(255, 99, 132)",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
         },
