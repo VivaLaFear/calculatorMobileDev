@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   textWrapper: { alignItems: 'flex-end', width: '100%' },
   inputText: { color: '#FFFFFF', fontSize: 48, fontWeight: '300' },
   resultText: { color: COLORS.utility, fontSize: 24, marginTop: 10 },
-  grid: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', padding: 12, marginTop: -90 },
+  grid: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', padding: 12, marginTop: -115 },
   buttonWrapper: { width: '25%', aspectRatio: 1, padding: 6 },
   button: { flex: 1, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
   buttonText: { fontSize: 22, fontWeight: '600', color: COLORS.text },
