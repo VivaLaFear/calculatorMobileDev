@@ -11,7 +11,7 @@ import {
 import faker from "faker";
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 // footer works!
 ChartJS.register(
   CategoryScale,
@@ -34,15 +34,10 @@ export default function GraphScreen() {
         legend: {
           position: "bottom" as const,
         },
-        title: {
-          display: true,
-          text: "Line Chart",
-        },
       },
     };
 
     const labels = [1];
-    const datasets = [];
 
     for (let i = 2; i <= graphLength; i++) {
       labels.push(i);
@@ -66,7 +61,6 @@ export default function GraphScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.center}>
-        <Text style={styles.text}>Placeholder</Text>
         {graphElement}
         <View>
           <label style={styles.text}>
