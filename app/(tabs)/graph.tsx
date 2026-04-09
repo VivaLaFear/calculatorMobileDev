@@ -1,3 +1,5 @@
+"--jsx";
+
 import { router, Stack } from "expo-router";
 import { Hourglass } from "lucide-react-native";
 import {
